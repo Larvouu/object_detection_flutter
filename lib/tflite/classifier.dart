@@ -21,9 +21,12 @@ class Classifier {
   static const String LABEL_FILE_NAME = "labelmap.txt";
 
   /// Input size of image (height = width = 300)
+  /// [Taille] des images
   static const int INPUT_SIZE = 300;
 
   /// Result score threshold
+  /// [seuil] minimal de reconnaissance pour être affiché
+  /// 50%
   static const double THRESHOLD = 0.5;
 
   /// [ImageProcessor] used to pre-process the image

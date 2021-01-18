@@ -7,6 +7,23 @@ import 'package:object_detection/tflite/classifier.dart';
 import 'package:object_detection/utils/image_utils.dart';
 import 'package:tflite_flutter/tflite_flutter.dart';
 
+
+/**
+ * CETTE CLASSE ABRITE LES METHODES QUI SONT UTILISEES POUR RECEVOIR LES RESULTATS
+ * DU MODEL DE MANIERE ASYNCHRONE, POUR NE PAS RALENTIR L'UI DE L'APP
+ */
+
+/// C'est quoi un [Isolate] ?
+///   On the surface an Isolate might just seem like another way of executing a task
+///   in an [asynchronous] manner (see my Dart tutorial on async here for more on that)
+///   but there is a key difference. Async operations in Dart operate on the same thread
+///   as the user interface whereas an [Isolate] gets its own [thread].  Therefore, if
+///   you want to execute a process that is fairly intense and you want to make sure
+///   you keep your app responsive and snappy in the eyes of the user, then you should
+///   consider using Isolates.
+///   Lien de l'explication : https://codingwithjoe.com/dart-fundamentals-isolates/
+
+
 /// Manages separate Isolate instance for inference
 class IsolateUtils {
   static const String DEBUG_NAME = "InferenceIsolate";

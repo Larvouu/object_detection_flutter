@@ -7,6 +7,10 @@ import 'package:object_detection/ui/camera_view_singleton.dart';
 
 import 'camera_view.dart';
 
+/**
+ * CLASS UI POUR LA PAGE D'ACCUEIL
+ */
+
 /// [HomeView] stacks [CameraView] and [BoxWidget]s with bottom sheet for stats
 class HomeView extends StatefulWidget {
   @override
@@ -42,7 +46,8 @@ class _HomeViewState extends State<HomeView> {
             child: Container(
               padding: EdgeInsets.only(top: 20),
               child: Text(
-                'Object Detection Flutter',
+                //'Object Detection Flutter',
+                ' ', //J'ai viré le text plus haut
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   fontSize: 28,
@@ -52,7 +57,8 @@ class _HomeViewState extends State<HomeView> {
               ),
             ),
           ),
-
+//ToDo : J'ai enlevé l'affichage bottom sheet
+/*
           // Bottom Sheet
           Align(
             alignment: Alignment.bottomCenter,
@@ -96,8 +102,28 @@ class _HomeViewState extends State<HomeView> {
                 ),
               ),
             ),
-          )
+          )*/
         ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+          elevation: 10.0,
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+                backgroundColor: Colors.white,
+                icon: Icon(Icons.home, color: Colors.indigo,),
+                label: 'Home'
+            ),
+            BottomNavigationBarItem(
+                backgroundColor: Colors.white,
+                icon: Icon(Icons.remove_red_eye, color: Colors.indigo),
+                label: 'Discover'
+            ),
+            BottomNavigationBarItem(
+              backgroundColor: Colors.white,
+              icon: Icon(Icons.app_registration, color: Colors.indigo),
+              label: 'Aquadex',
+            ),
+          ]
       ),
     );
   }

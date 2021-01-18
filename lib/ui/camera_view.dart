@@ -9,6 +9,12 @@ import 'package:object_detection/tflite/stats.dart';
 import 'package:object_detection/ui/camera_view_singleton.dart';
 import 'package:object_detection/utils/isolate_utils.dart';
 
+/**
+ * CLASS UI POUR AFFICHER LA CAMERA
+ * s'occupe également de séquencer la vidéo en images + les convertir
+ * pour pouvoir leur appliquer le model
+ */
+
 /// [CameraView] sends each frame for inference
 class CameraView extends StatefulWidget {
   /// Callback to pass results after inference to [HomeView]
@@ -63,8 +69,10 @@ class _CameraViewState extends State<CameraView> with WidgetsBindingObserver {
     cameras = await availableCameras();
 
     // cameras[0] for rear-camera
+    //ToDo : j'ai changé [ResolutionPreset.low] en [ResolutionPreset.high] juste en dessous
+    //ça a permis d'agrandor la caméra, qui prend tout l'écran (presque), et augmenter sa résolution
     cameraController =
-        CameraController(cameras[0], ResolutionPreset.low, enableAudio: false);
+        CameraController(cameras[0], ResolutionPreset.high, enableAudio: false);
 
     cameraController.initialize().then((_) async {
       // Stream of image passed to [onLatestImageAvailable] callback

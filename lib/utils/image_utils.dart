@@ -4,6 +4,10 @@ import 'package:camera/camera.dart';
 import 'package:image/image.dart' as imageLib;
 import 'package:path_provider/path_provider.dart';
 
+/**
+ * CETTE CLASSE ABRITE LES METHODES QUI PERMETTENT DE CONVERTIR LES [CameraImage] en [Image]
+ */
+
 /// ImageUtils
 class ImageUtils {
   /// Converts a [CameraImage] in YUV420 format to [imageLib.Image] in RGB format
